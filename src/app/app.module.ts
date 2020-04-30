@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LTableComponent } from './comp/l-table/l-table.component';
@@ -20,6 +21,7 @@ import { UsersListComponent } from './pages/users/users-list/users-list.componen
   imports: [
     BrowserModule,
     MatTableModule,
+    MatButtonModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
