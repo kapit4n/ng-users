@@ -6,7 +6,7 @@
             <td mat-cell *matCellDef="let element">
                 <div *ngIf="item.type == 'text'; else elseBlock">{{element[item.name]}}</div>
                 <ng-template #elseBlock>
-                    <a color="primary" mat-button [href]="basicPath" target="_blank">details</a>
+                    <a color="primary" mat-button [href]="basicPath + '/' + element.id" target="_blank">details</a>
                     <button (click)="removeFunction(element.id)" color="primary" mat-button
                         target="_blank">remove</button>
                 </ng-template>
