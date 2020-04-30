@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 export interface User {
   id: number;
   displayName: string;
+  email: string;
   address: string;
+  phone: string;
 }
 
 export interface UserConfig {
@@ -13,8 +15,8 @@ export interface UserConfig {
 }
 
 const USERS_DATA: User[] = [
-  { id: 1, displayName: 'Luis Arce', address: 'Argentina st 1515' },
-  { id: 2, displayName: "Samantha Arce", address: 'Chile st 1414' },
+  { id: 1, displayName: 'Luis Arce', email: 'l@gmail.com', address: 'Argentina st 1515', phone: "1111111" },
+  { id: 2, displayName: "Samantha Arce", email: 's@gmail.com', address: 'Chile st 1414', phone: '2222222' },
 ];
 
 @Component({
@@ -24,17 +26,21 @@ const USERS_DATA: User[] = [
 })
 export class UsersListComponent implements OnInit {
 
-  displayedColumns: string[] = ['displayName', 'address', 'actions'];
+  displayedColumns: string[] = ['displayName', 'email', 'address', 'phone', 'actions'];
 
   removeFunction = (id: number) => { }
   basicPath = "/users"
 
   columnsConfig: UserConfig[] = [
     { type: 'text', name: 'displayName', label: 'Display Name' },
+    { type: 'text', name: 'email', label: 'email' },
     { type: 'text', name: 'address', label: 'Address' },
+    { type: 'text', name: 'phone', label: 'Phone' },
     { type: 'actions', name: 'actions', label: 'Actions' },
   ];
+
   dataSource = USERS_DATA;
+
   constructor() { }
 
   ngOnInit(): void {
