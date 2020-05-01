@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface User {
+interface User {
   id: number;
   displayName: string;
   email: string;
@@ -26,10 +26,11 @@ const USERS_DATA: User[] = [
 })
 export class UsersListComponent implements OnInit {
 
+  title: "Users List"
   displayedColumns: string[] = ['displayName', 'email', 'address', 'phone', 'actions'];
 
   removeFunction = (id: number) => { }
-  basicPath = "/users"
+  basicPath = ""
 
   columnsConfig: UserConfig[] = [
     { type: 'text', name: 'displayName', label: 'Display Name' },
