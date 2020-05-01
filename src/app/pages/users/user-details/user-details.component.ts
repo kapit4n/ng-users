@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 interface User {
   id: number;
@@ -25,8 +26,9 @@ export class UserDetailsComponent implements OnInit {
   dataSource = USERS_DATA[0];
   displayedFields: string[] = ['firstName', 'lastName', 'email', 'address', 'phone'];
 
-
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(params => console.log(params.id));
+  }
 
   ngOnInit(): void {
   }
