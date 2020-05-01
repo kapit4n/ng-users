@@ -27,7 +27,9 @@ export class UserDetailsComponent implements OnInit {
   displayedFields: string[] = ['firstName', 'lastName', 'email', 'address', 'phone'];
 
   constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(params => console.log(params.id));
+    this.route.params.subscribe(params => {
+      this.dataSource = USERS_DATA.find(x => x.id == Number(params.id));
+    });
   }
 
   ngOnInit(): void {
