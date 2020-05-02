@@ -1,5 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+export interface ColumnConfig {
+  type: string;
+  name: string;
+  label: string;
+}
+
+
 @Component({
   selector: 'app-l-table',
   templateUrl: './l-table.component.html',
@@ -11,7 +18,7 @@ export class LTableComponent implements OnInit {
   @Input() dataSource: any[];
   @Input() displayedColumns: string[];
   @Input() title: string;
-  @Input() columnsConfig: any[];
+  @Input() columnsConfig: ColumnConfig[];
   
   removeFunction = (id: number) => { }
 

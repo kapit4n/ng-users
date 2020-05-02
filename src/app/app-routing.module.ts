@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './pages/users/users.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UserDetailsComponent } from './pages/users/user-details/user-details.component';
+import { RolesComponent } from './pages/users/roles/roles.component';
 import { RolesListComponent } from './pages/users/roles-list/roles-list.component';
 import { RoleDetailsComponent } from './pages/users/role-details/role-details.component';
 
@@ -31,20 +32,31 @@ const routes: Routes = [
       },
     ]
   },
+  
   {
     path: 'roles',
-    component: RolesListComponent,
     data: {
       breadcrumb: 'Roles',
     },
+    component: RolesComponent,
+    children: [
+      {
+        path: '',
+        data: {
+          breadcrumb: ''
+        },
+        component: RolesListComponent,
+      },
+      {
+        path: ':id',
+        component: RoleDetailsComponent,
+        data: {
+          breadcrumb: 'Details',
+        },
+      },
+    ]
   },
-  {
-    path: 'roles/:id',
-    component: RoleDetailsComponent,
-    data: {
-      breadcrumb: 'Role Details',
-    },
-  },
+  
 ];
 
 @NgModule({
