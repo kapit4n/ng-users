@@ -30,7 +30,7 @@ export class UsersListComponent implements OnInit {
   displayedColumns: string[] = ['displayName', 'email', 'address', 'phone', 'actions'];
 
   removeFunction = (id: number) => { }
-  basicPath = "users"
+  basicPath = "/users"
 
   columnsConfig: UserConfig[] = [
     { type: 'text', name: 'displayName', label: 'Display Name' },
