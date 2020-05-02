@@ -6,12 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./l-table.component.css']
 })
 export class LTableComponent implements OnInit {
-
+  
+  @Input() basicPath;
+  @Input() dataSource: any[];
   @Input() displayedColumns: string[];
   @Input() title: string;
-  @Input() basicPath;
   @Input() columnsConfig: any[];
-  @Input() dataSource: any[];
   
   removeFunction = (id: number) => { }
 

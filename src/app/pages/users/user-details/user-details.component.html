@@ -1,24 +1,6 @@
 <div>
     <h1 style="text-transform: uppercase;">User Profile</h1>
     <button (click)="onSave()" mat-raised-button color="primary">Save</button>
-    <mat-grid-list cols="3" rowHeight="100px">
-        <mat-grid-tile colspan="2" rowspan="2">
-            <div style="width: 100%; padding-right: 2rem;">
-                <div *ngFor="let item of displayedFields"
-                    style="display: flex; border-bottom-color: rgb(98, 133, 133); border-bottom-width: 3px; border-bottom-style: solid;">
-                    <div
-                        style="font-size: 1rem; font-weight: bold; padding: 0.5rem; width: 7rem; text-transform: uppercase;">
-                        {{fieldConfigs.get(item).label}}</div>
-                    <input style="font-size: 1rem;  padding: 0.5rem; border: 0; margin: 0; width: 80%;"
-                        [(ngModel)]="dataSource[item]" [type]="fieldConfigs.get(item).type" />
-                </div>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1" rowspan="2">
-            <div style="width: 100%;">
-                <div>Avatar</div>
-                <img [src]="dataSource['avatar']">
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+    <app-l-details [dataSource]="dataSource" [displayedFields]="displayedFields" [fieldConfigs]="fieldConfigs">
+    </app-l-details>
 </div>

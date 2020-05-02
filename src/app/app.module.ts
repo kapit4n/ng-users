@@ -18,6 +18,7 @@ import { RoleDetailsComponent } from './pages/users/role-details/role-details.co
 import { BreadcrumbsComponent } from './comp/breadcrumbs/breadcrumbs.component';
 import { UsersComponent } from './pages/users/users.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { LDetailsComponent } from './comp/l-details/l-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RolesListComponent,
     RoleDetailsComponent,
     BreadcrumbsComponent,
-    UsersComponent
+    UsersComponent,
+    LDetailsComponent
   ],
   imports: [
     BrowserModule,
