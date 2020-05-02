@@ -1,20 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Role {
-  id: number;
-  name: string;
-}
-
-export interface ColumnConfig {
-  type: string;
-  name: string;
-  label: string;
-}
-
-const ROLES_DATA: Role[] = [
-  { id: 1, name: 'Software developer' },
-  { id: 2, name: "Tester" },
-];
+import { Role } from 'src/app/interfaces/users/role'
+import { ColumnConfig } from 'src/app/interfaces/users/column-config'
+import { RolesService } from 'src/app/svc/users/roles.service'
 
 @Component({
   selector: 'app-roles-list',
@@ -34,9 +21,11 @@ export class RolesListComponent implements OnInit {
     { type: 'actions', name: 'actions', label: 'Actions' },
   ];
 
-  dataSource = ROLES_DATA;
+  dataSource: Role[];
 
-  constructor() { }
+  constructor(rolesSvc: RolesService) {
+    this.dataSource = rolesSvc.list();
+  }
 
   ngOnInit(): void {
   }

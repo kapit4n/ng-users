@@ -1,26 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-
-interface Role {
-  id: number;
-  name: string;
-  avatar: string;
-}
-
-enum RoleFields {
-  Name = "name",
-  Avatar = "avatar",
-}
-
-interface FieldConfig {
-  type: string;
-  label: string;
-}
-
-const ROLES_DATA: Role[] = [
-  { id: 1, name: 'Software developer', avatar: "https://img.favpng.com/25/1/17/avatar-user-computer-icons-software-developer-png-favpng-7SbFpNeqKqhhTrrrnHFUqk6U4.jpg" },
-  { id: 2, name: "Tester", avatar: "https://img.favpng.com/25/1/17/avatar-user-computer-icons-software-developer-png-favpng-7SbFpNeqKqhhTrrrnHFUqk6U4.jpg" },
-];
+import { Role } from 'src/app/interfaces/users/role';
+import { FieldConfig } from 'src/app/interfaces/users/field-config';
+import { RoleFields } from 'src/app/enums/users/role-fields.enum';
+import { RolesService } from 'src/app/svc/users/roles.service';
 
 @Component({
   selector: 'app-role-details',
@@ -29,10 +12,10 @@ const ROLES_DATA: Role[] = [
 })
 export class RoleDetailsComponent implements OnInit {
 
-  dataSource = ROLES_DATA[0];
+  dataSource: Role;
   displayedFields: string[] = [];
   fieldConfigs = new Map<string, FieldConfig>();
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, rolesSvc: RolesService) {
 
     this.displayedFields = [RoleFields.Name];
 
@@ -42,7 +25,7 @@ export class RoleDetailsComponent implements OnInit {
     console.log(this.fieldConfigs);
 
     this.route.params.subscribe(params => {
-      this.dataSource = ROLES_DATA.find(x => x.id == Number(params.id));
+      this.dataSource = rolesSvc.get(Number(params.id));
     });
   }
 
