@@ -1,29 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  address: string;
-  phone: string;
-  avatar: string;
-}
-
-enum UserFields {
-  FirstName = "firstName",
-  LastName = "lastName",
-  Email = "email",
-  Address = "address",
-  Phone = "phone",
-  Avatar = "avatar",
-}
-
-interface FieldConfig {
-  type: string;
-  label: string;
-}
+import { UserFields } from 'src/app/enums/users/user-fields.enum';
+import { FieldConfig } from 'src/app/interfaces/users/field-config';
+import { User } from 'src/app/interfaces/users/user';
 
 const USERS_DATA: User[] = [
   { id: 1, firstName: 'Luis', lastName: 'Arce', email: 'l@gmail.com', address: 'Argentina st 1515', phone: "1111111", avatar: "https://img.favpng.com/25/1/17/avatar-user-computer-icons-software-developer-png-favpng-7SbFpNeqKqhhTrrrnHFUqk6U4.jpg" },

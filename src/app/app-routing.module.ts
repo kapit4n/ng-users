@@ -6,7 +6,9 @@ import { UserDetailsComponent } from './pages/users/user-details/user-details.co
 import { RolesComponent } from './pages/users/roles/roles.component';
 import { RolesListComponent } from './pages/users/roles-list/roles-list.component';
 import { RoleDetailsComponent } from './pages/users/role-details/role-details.component';
-
+import { PermissionsComponent } from './pages/users/permissions/permissions.component';
+import { PermissionsListComponent } from './pages/users/permissions-list/permissions-list.component';
+import { PermissionDetailsComponent } from './pages/users/permission-details/permission-details.component';
 
 const routes: Routes = [
   {
@@ -32,7 +34,6 @@ const routes: Routes = [
       },
     ]
   },
-  
   {
     path: 'roles',
     data: {
@@ -50,6 +51,29 @@ const routes: Routes = [
       {
         path: ':id',
         component: RoleDetailsComponent,
+        data: {
+          breadcrumb: 'Details',
+        },
+      },
+    ]
+  },
+  {
+    path: 'permissions',
+    data: {
+      breadcrumb: 'Permissions',
+    },
+    component: PermissionsComponent,
+    children: [
+      {
+        path: '',
+        data: {
+          breadcrumb: ''
+        },
+        component: PermissionsListComponent,
+      },
+      {
+        path: ':id',
+        component: PermissionDetailsComponent,
         data: {
           breadcrumb: 'Details',
         },

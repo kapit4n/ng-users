@@ -20,6 +20,9 @@ import { UsersComponent } from './pages/users/users.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LDetailsComponent } from './comp/l-details/l-details.component';
 import { RolesComponent } from './pages/users/roles/roles.component';
+import { PermissionsComponent } from './pages/users/permissions/permissions.component';
+import { PermissionsListComponent } from './pages/users/permissions-list/permissions-list.component';
+import { PermissionDetailsComponent } from './pages/users/permission-details/permission-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { RolesComponent } from './pages/users/roles/roles.component';
     BreadcrumbsComponent,
     UsersComponent,
     LDetailsComponent,
-    RolesComponent
+    RolesComponent,
+    PermissionsComponent,
+    PermissionsListComponent,
+    PermissionDetailsComponent,
   ],
   imports: [
     BrowserModule,

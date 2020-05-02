@@ -1,22 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/users/user'
+import { ColumnConfig } from 'src/app/interfaces/users/column-config'
 
-interface User {
-  id: number;
-  displayName: string;
-  email: string;
-  address: string;
-  phone: string;
-}
-
-export interface UserConfig {
-  type: string;
-  name: string;
-  label: string;
-}
 
 const USERS_DATA: User[] = [
-  { id: 1, displayName: 'Luis Arce', email: 'l@gmail.com', address: 'Argentina st 1515', phone: "1111111" },
-  { id: 2, displayName: "Samantha Arce", email: 's@gmail.com', address: 'Chile st 1414', phone: '2222222' },
+  { id: 1, firstName: 'Luis', lastName: 'Arce', email: 'l@gmail.com', address: 'Argentina st 1515', phone: "1111111", avatar: "https://img.favpng.com/25/1/17/avatar-user-computer-icons-software-developer-png-favpng-7SbFpNeqKqhhTrrrnHFUqk6U4.jpg" },
+  { id: 2, firstName: "Samantha", lastName: "Arce", email: 's@gmail.com', address: 'Chile st 1414', phone: '2222222', avatar: "https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407__340.png" },
 ];
 
 @Component({
@@ -32,7 +21,7 @@ export class UsersListComponent implements OnInit {
   removeFunction = (id: number) => { }
   basicPath = "/users"
 
-  columnsConfig: UserConfig[] = [
+  columnsConfig: ColumnConfig[] = [
     { type: 'text', name: 'displayName', label: 'Display Name' },
     { type: 'text', name: 'email', label: 'email' },
     { type: 'text', name: 'address', label: 'Address' },
