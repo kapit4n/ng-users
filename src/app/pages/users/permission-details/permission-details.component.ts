@@ -22,8 +22,6 @@ export class PermissionDetailsComponent implements OnInit {
     this.fieldConfigs.set(PermissionFields.Name, { type: 'text', label: 'Name' });
     this.fieldConfigs.set(PermissionFields.Avatar, { type: 'img', label: 'Avatar' });
 
-    console.log(this.fieldConfigs);
-
     this.route.params.subscribe(params => {
       this.dataSource = svc.get(Number(params.id));
     });
