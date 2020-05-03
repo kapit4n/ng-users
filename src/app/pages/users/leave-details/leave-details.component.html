@@ -1,1 +1,6 @@
-<p>leave-details works!</p>
+<div>
+    <h1 style="text-transform: uppercase;">leave details</h1>
+    <button (click)="onSave()" mat-raised-button color="primary">Save</button>
+    <app-l-details [dataSource]="dataSource" [displayedFields]="displayedFields" [fieldConfigs]="fieldConfigs">
+    </app-l-details>
+</div>
