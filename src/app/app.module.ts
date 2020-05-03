@@ -28,6 +28,12 @@ import { PermissionDetailsComponent } from './pages/users/permission-details/per
 import { LFieldComponent } from './comp/l-field/l-field.component';
 import { LSelectComponent } from './comp/l-select/l-select.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PayrollsComponent } from './pages/users/payrolls/payrolls.component';
+import { LeavesComponent } from './pages/users/leaves/leaves.component';
+import { LeavesListComponent } from './pages/users/leaves-list/leaves-list.component';
+import { LeaveDetailsComponent } from './pages/users/leave-details/leave-details.component';
+import { PayrollsListComponent } from './pages/users/payrolls-list/payrolls-list.component';
+import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-details.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,12 @@ import { MatSelectModule } from '@angular/material/select';
     PermissionDetailsComponent,
     LFieldComponent,
     LSelectComponent,
+    PayrollsComponent,
+    LeavesComponent,
+    LeavesListComponent,
+    LeaveDetailsComponent,
+    PayrollsListComponent,
+    PayrollDetailsComponent,
   ],
   imports: [
     BrowserModule,
