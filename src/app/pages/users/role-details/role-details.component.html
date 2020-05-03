@@ -3,4 +3,8 @@
     <button (click)="onSave()" mat-raised-button color="primary">Save</button>
     <app-l-details [dataSource]="dataSource" [displayedFields]="displayedFields" [fieldConfigs]="fieldConfigs">
     </app-l-details>
+    <h1>Permissions</h1>
+    <app-l-table basicPath="permissions" [dataSource]="permissionsDS" [displayedColumns]="permissionDisplay"
+        title="Permissions" [columnsConfig]="columnsConfig"></app-l-table>
+
 </div>

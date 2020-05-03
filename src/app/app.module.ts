@@ -23,6 +23,7 @@ import { RolesComponent } from './pages/users/roles/roles.component';
 import { PermissionsComponent } from './pages/users/permissions/permissions.component';
 import { PermissionsListComponent } from './pages/users/permissions-list/permissions-list.component';
 import { PermissionDetailsComponent } from './pages/users/permission-details/permission-details.component';
+import { LFieldComponent } from './comp/l-field/l-field.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PermissionDetailsComponent } from './pages/users/permission-details/per
     PermissionsComponent,
     PermissionsListComponent,
     PermissionDetailsComponent,
+    LFieldComponent,
   ],
   imports: [
     BrowserModule,

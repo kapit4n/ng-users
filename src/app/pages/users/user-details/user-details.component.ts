@@ -4,6 +4,8 @@ import { UserFields } from 'src/app/enums/users/user-fields.enum';
 import { FieldConfig } from 'src/app/interfaces/users/field-config';
 import { User } from 'src/app/interfaces/users/user';
 import { UsersService } from 'src/app/svc/users/users.service';
+import { RolesService } from 'src/app/svc/users/roles.service';
+import { Role } from 'src/app/interfaces/users/role';
 
 
 @Component({
@@ -14,9 +16,10 @@ import { UsersService } from 'src/app/svc/users/users.service';
 export class UserDetailsComponent implements OnInit {
 
   dataSource: User;
+  role: Role;
   displayedFields: string[] = [];
   fieldConfigs = new Map<string, FieldConfig>();
-  constructor(private route: ActivatedRoute, usersSvc: UsersService) {
+  constructor(private route: ActivatedRoute, svc: UsersService, rolesSvc: RolesService) {
 
     this.displayedFields = [UserFields.FirstName, UserFields.LastName, UserFields.Email, UserFields.Address, UserFields.Phone];
 
@@ -28,7 +31,8 @@ export class UserDetailsComponent implements OnInit {
     this.fieldConfigs.set(UserFields.Avatar, { type: 'img', label: 'Avatar' });
 
     this.route.params.subscribe(params => {
-      this.dataSource = usersSvc.get(Number(params.id));
+      this.dataSource = svc.get(Number(params.id));
+      this.role = rolesSvc.get(this.dataSource.roleId);
     });
   }
 
