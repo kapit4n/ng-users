@@ -9,6 +9,12 @@ import { RoleDetailsComponent } from './pages/users/role-details/role-details.co
 import { PermissionsComponent } from './pages/users/permissions/permissions.component';
 import { PermissionsListComponent } from './pages/users/permissions-list/permissions-list.component';
 import { PermissionDetailsComponent } from './pages/users/permission-details/permission-details.component';
+import { PayrollsComponent } from './pages/users/payrolls/payrolls.component';
+import { PayrollsListComponent } from './pages/users/payrolls-list/payrolls-list.component';
+import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-details.component';
+import { LeavesComponent } from './pages/users/leaves/leaves.component';
+import { LeavesListComponent } from './pages/users/leaves-list/leaves-list.component';
+import { LeaveDetailsComponent } from './pages/users/leave-details/leave-details.component';
 
 const routes: Routes = [
   {
@@ -80,7 +86,55 @@ const routes: Routes = [
       },
     ]
   },
-  
+
+  {
+    path: 'payrolls',
+    data: {
+      breadcrumb: 'Payrolls',
+    },
+    component: PayrollsComponent,
+    children: [
+      {
+        path: '',
+        data: {
+          breadcrumb: ''
+        },
+        component: PayrollsListComponent,
+      },
+      {
+        path: ':id',
+        component: PayrollDetailsComponent,
+        data: {
+          breadcrumb: 'Details',
+        },
+      },
+    ]
+  },
+
+  {
+    path: 'leaves',
+    data: {
+      breadcrumb: 'Leaves',
+    },
+    component: LeavesComponent,
+    children: [
+      {
+        path: '',
+        data: {
+          breadcrumb: ''
+        },
+        component: LeavesListComponent,
+      },
+      {
+        path: ':id',
+        component: LeaveDetailsComponent,
+        data: {
+          breadcrumb: 'Details',
+        },
+      },
+    ]
+  },
+
 ];
 
 @NgModule({
