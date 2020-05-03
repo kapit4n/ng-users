@@ -6,7 +6,7 @@
                 <div
                     style="font-size: 1rem; font-weight: bold; padding: 0.5rem; width: 7rem; text-transform: uppercase;">
                     {{fieldConfigs.get(item).label}}</div>
-                <input style="font-size: 1rem;  padding: 0.5rem; border: 0; margin: 0; width: 80%;"
+                <input matInput style="font-size: 1rem;  padding: 0.5rem; border: 0; margin: 0; width: 80%;"
                     [(ngModel)]="dataSource[item]" [type]="fieldConfigs.get(item).type" />
             </div>
         </div>

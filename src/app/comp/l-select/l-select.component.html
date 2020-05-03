@@ -1,0 +1,8 @@
+<div
+    style="display: flex; border-bottom-color: rgb(98, 133, 133); border-bottom-width: 3px; border-bottom-style: solid;">
+    <div style="font-size: 1rem; font-weight: bold; padding: 0.5rem; width: 7rem; text-transform: uppercase;">
+        {{label}}</div>
+    <mat-select [(value)]="selected" style="width: 100%; padding: 0.4rem;">
+        <mat-option *ngFor="let item of dataSource" [value]="item.value" style="">{{item.label}}</mat-option>
+    </mat-select>
+</div>

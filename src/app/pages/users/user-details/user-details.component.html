@@ -3,5 +3,5 @@
     <button (click)="onSave()" mat-raised-button color="primary">Save</button>
     <app-l-details [dataSource]="dataSource" [displayedFields]="displayedFields" [fieldConfigs]="fieldConfigs">
     </app-l-details>
-    <app-l-field [model]="role.name" type="text" label="Role"></app-l-field>
+    <app-l-select [selected]="dataSource.roleId" [dataSource]="roles" label="Role"></app-l-select>
 </div>

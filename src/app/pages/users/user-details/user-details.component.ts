@@ -6,6 +6,7 @@ import { User } from 'src/app/interfaces/users/user';
 import { UsersService } from 'src/app/svc/users/users.service';
 import { RolesService } from 'src/app/svc/users/roles.service';
 import { Role } from 'src/app/interfaces/users/role';
+import { SelectInterface } from 'src/app/interfaces/comp/select-interface';
 
 
 @Component({
@@ -16,7 +17,8 @@ import { Role } from 'src/app/interfaces/users/role';
 export class UserDetailsComponent implements OnInit {
 
   dataSource: User;
-  role: Role;
+  role: SelectInterface;
+  roles: SelectInterface[];
   displayedFields: string[] = [];
   fieldConfigs = new Map<string, FieldConfig>();
   constructor(private route: ActivatedRoute, svc: UsersService, rolesSvc: RolesService) {
@@ -32,7 +34,9 @@ export class UserDetailsComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.dataSource = svc.get(Number(params.id));
-      this.role = rolesSvc.get(this.dataSource.roleId);
+      const r = rolesSvc.get(this.dataSource.roleId);
+      this.role = { label: r.name, value: r.id };
+      this.roles = rolesSvc.list().map(x => { return { value: x.id, label: x.name } });
     });
   }
 
