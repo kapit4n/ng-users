@@ -9,6 +9,7 @@ import { RoleDetailsComponent } from './pages/users/role-details/role-details.co
 import { PermissionsComponent } from './pages/users/permissions/permissions.component';
 import { PermissionsListComponent } from './pages/users/permissions-list/permissions-list.component';
 import { PermissionDetailsComponent } from './pages/users/permission-details/permission-details.component';
+import { PermissionCreateComponent } from './pages/users/permission-create/permission-create.component';
 import { PayrollsComponent } from './pages/users/payrolls/payrolls.component';
 import { PayrollsListComponent } from './pages/users/payrolls-list/payrolls-list.component';
 import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-details.component';
@@ -76,6 +77,13 @@ const routes: Routes = [
           breadcrumb: ''
         },
         component: PermissionsListComponent,
+      },
+      {
+        path: 'create',
+        component: PermissionCreateComponent,
+        data: {
+          breadcrumb: 'Create',
+        },
       },
       {
         path: ':id',

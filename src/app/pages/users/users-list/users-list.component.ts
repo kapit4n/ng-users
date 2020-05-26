@@ -27,7 +27,7 @@ export class UsersListComponent implements OnInit {
   dataSource: User[];
 
   constructor(usersSvc: UsersService) {
-    this.dataSource = usersSvc.list();
+    usersSvc.getAll().subscribe(x => console.log(x));
   }
 
   ngOnInit(): void {

@@ -5,6 +5,7 @@ const LEAVES_DATA: Leave[] = [
   { id: 1, period: '1d', userId: 1 },
   { id: 2, period: '3d', userId: 3 },
   { id: 3, period: '1w', userId: 4 },
+  { id: 4, period: '4h', userId: 2 },
 ];
 
 @Injectable({

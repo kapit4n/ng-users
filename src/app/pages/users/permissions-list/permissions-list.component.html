@@ -1,5 +1,8 @@
 <div>
     <h1>{{title}}</h1>
+    <div style="width: 100%; display: flex; justify-content: flex-end;">
+        <button mat-raised-button color="primary" routerLink="create">Create</button>
+    </div>
     <app-l-table [basicPath]="basicPath" [dataSource]="dataSource" [displayedColumns]="displayedColumns" [title]="title"
-        [columnsConfig]="columnsConfig"></app-l-table>
+    [columnsConfig]="columnsConfig"></app-l-table>
 </div>

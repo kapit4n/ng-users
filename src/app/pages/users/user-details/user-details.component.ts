@@ -33,7 +33,7 @@ export class UserDetailsComponent implements OnInit {
     this.fieldConfigs.set(UserFields.Avatar, { type: 'img', label: 'Avatar' });
 
     this.route.params.subscribe(params => {
-      this.dataSource = svc.get(Number(params.id));
+      svc.getById(Number(params.id)).subscribe(x => console.log(x));
       const r = rolesSvc.get(this.dataSource.roleId);
       this.role = { label: r.name, value: r.id };
       this.roles = rolesSvc.list().map(x => { return { value: x.id, label: x.name } });

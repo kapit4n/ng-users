@@ -10,6 +10,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LTableComponent } from './comp/l-table/l-table.component';
@@ -34,6 +36,20 @@ import { LeavesListComponent } from './pages/users/leaves-list/leaves-list.compo
 import { LeaveDetailsComponent } from './pages/users/leave-details/leave-details.component';
 import { PayrollsListComponent } from './pages/users/payrolls-list/payrolls-list.component';
 import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-details.component';
+import { UserCreateComponent } from './pages/users/user-create/user-create.component';
+import { PermissionCreateComponent } from './pages/users/permission-create/permission-create.component';
+
+import { EntityDataModule, DefaultDataServiceConfig } from '@ngrx/data';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { EntityStoreModule } from './store/entity-store.module'
+
+const defaultDataServiceConfig: DefaultDataServiceConfig = {
+  root: 'http://localhost:9000/api/v1',
+  timeout: 3000, // request timeout
+}
 
 @NgModule({
   declarations: [
@@ -58,6 +74,8 @@ import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-d
     LeaveDetailsComponent,
     PayrollsListComponent,
     PayrollDetailsComponent,
+    UserCreateComponent,
+    PermissionCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,11 +87,18 @@ import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-d
     MatMenuModule,
     MatFormFieldModule,
     MatSelectModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    EntityDataModule,
+    EffectsModule.forRoot(),
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule,
+    EntityStoreModule,
+
   ],
-  providers: [],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
