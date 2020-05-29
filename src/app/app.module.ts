@@ -39,17 +39,28 @@ import { PayrollDetailsComponent } from './pages/users/payroll-details/payroll-d
 import { UserCreateComponent } from './pages/users/user-create/user-create.component';
 import { PermissionCreateComponent } from './pages/users/permission-create/permission-create.component';
 
-import { EntityDataModule, DefaultDataServiceConfig } from '@ngrx/data';
+import { EntityDataModule, DefaultDataServiceConfig, EntityMetadataMap  } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { EntityStoreModule } from './store/entity-store.module'
+import { UsersService } from './svc/users/users.service';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: 'http://localhost:9000/api/v1',
   timeout: 3000, // request timeout
 }
+
+export const entityMetadata: EntityMetadataMap = {
+  User: {},
+};
+
+// Help ngrx-data pluralize entity type names
+// because the plural of "Hero" is not "Heros"
+export const pluralNames = {
+  User: 'Users' // the plural of Hero
+};
 
 @NgModule({
   declarations: [
@@ -96,9 +107,8 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     StoreModule.forRoot({}),
     StoreDevtoolsModule,
     EntityStoreModule,
-
   ],
-  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

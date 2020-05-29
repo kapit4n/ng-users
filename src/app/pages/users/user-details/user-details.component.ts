@@ -8,7 +8,6 @@ import { RolesService } from 'src/app/svc/users/roles.service';
 import { Role } from 'src/app/interfaces/users/role';
 import { SelectInterface } from 'src/app/interfaces/comp/select-interface';
 
-
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -33,10 +32,13 @@ export class UserDetailsComponent implements OnInit {
     this.fieldConfigs.set(UserFields.Avatar, { type: 'img', label: 'Avatar' });
 
     this.route.params.subscribe(params => {
-      svc.getById(Number(params.id)).subscribe(x => console.log(x));
-      const r = rolesSvc.get(this.dataSource.roleId);
-      this.role = { label: r.name, value: r.id };
-      this.roles = rolesSvc.list().map(x => { return { value: x.id, label: x.name } });
+      svc.getById(Number(params.id)).subscribe(x => {
+        this.dataSource = x;
+        console.log(x);
+        const r = rolesSvc.get(this.dataSource.roleId);
+        this.role = { label: r.name, value: r.id };
+        this.roles = rolesSvc.list().map(x => { return { value: x.id, label: x.name } });
+      });
     });
   }
 
